@@ -8,7 +8,11 @@ I encourage you to check out the analysis [here](https://ballotpedia.org/State_g
 Ballotpedia classifies states in different types of **Trifectas**. Below is Ballotpedia's definition for `Trifectas`:
 
 ```
-State government trifecta is a term to describe single-party government, when one political party holds the governorship and majorities in both chambers of the state legislature. The following are variations of the term:
+State government trifecta is a term to describe single-party government, 
+when one political party holds the governorship and majorities 
+in both chambers of the state legislature. 
+
+The following are variations of the term:
 
     - Trifecta: One political party holds the governorship, 
                 a majority in the state senate, 
