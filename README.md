@@ -16,10 +16,13 @@ in both chambers of the state legislature.
 
 
 ```python
+from pathlib import Path
 import pandas as pd
+import geopandas as gpd
 from datetime import datetime
 import matplotlib.pyplot as plt
 from IPython.display import display
+import matplotlib.patches as mpatches
 
 df = pd.read_html('https://ballotpedia.org/State_government_trifectas')[4]
 df.head()
@@ -193,6 +196,30 @@ print('States with trifecta:', df.shape[0])
     States with trifecta: 37
 
 
+
+```python
+state_abbreviations = pd.read_html('https://www.bu.edu/brand/guidelines/editorial-style/us-state-abbreviations/', header=0)[0]
+abbreviations = {}
+nones = state_abbreviations.apply(lambda row: {row.iloc[0]: row.iloc[-1]}, axis=1).apply(lambda x: abbreviations.update(x))
+df = df.assign(abbreviation=df.state.map(abbreviations))
+
+fig, ax = plt.subplots(figsize=(15,10))
+shapefile_path = str(Path('.') / 'shapefiles' /'cb_2018_us_state_20m.shp')
+geo_file = gpd.read_file(shapefile_path).assign(supermajority=lambda x: x.STUSPS.isin(df.abbreviation.to_list()).astype(int))
+geo_file.plot(column='supermajority', ax=ax, cmap='PiYG')
+ax.set_xlim(right=-25)
+ax.set_title('Super Majorities', fontsize=20)
+green_patch = mpatches.Patch(color='#276419', label='Has a supermajority')
+pink_patch = mpatches.Patch(color='#8e0152', label='No supermajority')
+plt.legend(handles=[green_patch, pink_patch], fontsize=15);
+```
+
+
+    
+![png](README_files/README_9_0.png)
+    
+
+
 ### How long on average have states held their current trifectas?
 
 
@@ -204,7 +231,7 @@ plt.title(f'Trifecta duration\n(Average Years with trifecta: {average_years_trif
 
 
     
-![png](README_files/README_10_0.png)
+![png](README_files/README_11_0.png)
     
 
 
@@ -219,7 +246,7 @@ plt.title('Number of trifectas by political party', fontsize=25);
 
 
     
-![png](README_files/README_12_0.png)
+![png](README_files/README_13_0.png)
     
 
 
@@ -247,6 +274,6 @@ ax[1].set_title('Median years with trifecta', fontsize=15);
 
 
     
-![png](README_files/README_14_0.png)
+![png](README_files/README_15_0.png)
     
 
