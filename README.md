@@ -22,8 +22,10 @@ import matplotlib.pyplot as plt
 from IPython.display import display
 
 df = pd.read_html('https://ballotpedia.org/State_government_trifectas')[4]
-display(df.head())
+df.head()
 ```
+
+
 
 
 <div>
@@ -93,6 +95,7 @@ display(df.head())
   </tbody>
 </table>
 </div>
+
 
 
 **Next I...**
