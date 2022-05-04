@@ -19,12 +19,11 @@ in both chambers of the state legislature.
 import pandas as pd
 from datetime import datetime
 import matplotlib.pyplot as plt
+from IPython.display import display
 
 df = pd.read_html('https://ballotpedia.org/State_government_trifectas')[4]
-df.head()
+display(df.head())
 ```
-
-
 
 
 <div>
@@ -96,7 +95,6 @@ df.head()
 </div>
 
 
-
 **Next I...**
 - Drop unecessary columns
 - Add a column that counts the number years since the status of the state's trifecta has changed
@@ -106,10 +104,8 @@ df.head()
 df.columns = df.columns.droplevel().str.lower().str.replace(' ', '_')
 df = df[[x for x in df.columns if 'unnamed' not in x]]
 df = df.assign(years_with_trifecta=datetime.now().year - df.year_of_last_status_change.astype(int))
-df.head()
+display(df.head())
 ```
-
-
 
 
 <div>
@@ -175,7 +171,6 @@ df.head()
   </tbody>
 </table>
 </div>
-
 
 
 **Next I filter out states with a "Diveded government" status because they different bodies of the state government are controlled by different political parties**
