@@ -7,30 +7,10 @@ I encourage you to check out the analysis [here](https://ballotpedia.org/State_g
 
 Ballotpedia classifies states in different types of **Trifectas**. Below is Ballotpedia's definition for `Trifectas`:
 
-```
-State government trifecta is a term to describe single-party government, 
+> State government trifecta is a term to describe single-party government, 
 when one political party holds the governorship and majorities 
 in both chambers of the state legislature. 
 
-The following are variations of the term:
-
-    - Trifecta: One political party holds the governorship, 
-                a majority in the state senate, 
-                and a majority in the state house 
-                in a state's government.
-                
-    - Trifecta plus: A trifecta and a working majority 
-                    of the state's court of last resort 
-                    siding with the political 
-                    leaning of the party in power.
-                    
-    - Trifecta with supermajority: A trifecta in which both 
-                                  legislative bodies have a 
-                                  supermajority, commonly defined 
-                                  as either 60 percent or two-thirds 
-                                  of seats held by a single party. 
-
-```
 
 **Below I collect the dataset from Ballotpedia's website**
 
